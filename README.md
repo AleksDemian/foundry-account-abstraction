@@ -1,66 +1,65 @@
-## Foundry
+# Account Abstraction
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+<br/>
+<p align="center">
+<img src="./img/ethereum/Account Abstraction Ethereum Transaction.jpg" width="500" alt="aa">
+</p>
+<br/>
 
-Foundry consists of:
+## What is Account Abstraction?
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Account Abstraction means that not only the execution of a transaction can be arbitrarily complex computation logic as specified by the EVM, but also the authorization logic.
 
-## Documentation
+EoAs are now smart contracts. That's all account abstraction is.
 
-https://book.getfoundry.sh/
+Right now, every single transaction in web3 stems from a single private key.
+<br/>
+<p align="center">
+<img src="./img/ethereum/Traditional Ethereum Transaction.jpg" width="500" alt="tr">
+</p>
+<br/>
 
-## Usage
+# Getting Started 
 
-### Build
+## Requirements
 
-```shell
-$ forge build
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
+- [foundry](https://getfoundry.sh/)
+  - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.2.0 (816e00b 2023-03-16T00:05:26.396218Z)`
+
+## Installation
+
+```bash
+git clone https://github.com/AleksDemian/foundry-account-abstraction
+cd foundry-account-abstraction
+make
+```
+# Quickstart 
+
+## Vanilla Foundry
+
+```bash
+foundryup
+make test
 ```
 
-### Test
+### Deploy - Arbitrum
 
-```shell
-$ forge test
+```bash
+make deployEth
 ```
 
-### Format
+### User operation - Arbitrum
 
-```shell
-$ forge fmt
+```bash
+make sendUserOp
 ```
 
-### Gas Snapshots
+> Note: Sending an account abstraction transaction doesn't work on the local network, because we don't have the system contracts setup on the local network. 
 
-```shell
-$ forge snapshot
-```
+# Example Deployments
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Ethereum (Arbitrum)
+- [Minimal Account](https://arbiscan.io/address/0x60d9aa4e11d72004e2e6ef37eecd282ceec51521#code)
+- [USDC Approval via EntryPoint](https://arbiscan.io/tx/0xe23c3b8c6e4c913695d69337e6e64d2f648423eedfea17675a8e3249e9bcf065)
